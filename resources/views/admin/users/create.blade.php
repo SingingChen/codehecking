@@ -12,14 +12,37 @@
           {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
 
-             {!! Form::label('title','Title') !!}
-             {!! Form::text('title',null,['class'=>'form-control']) !!}
-             {!! Form::label('content','content') !!}
-             {!! Form::text('content',null,['placeholder'=>'enter content']) !!}
+             {!! Form::label('name','Name') !!}
+             {!! Form::text('name',null,['class'=>'form-control']) !!}
+
          </div>
 
-         <div class="form-group">
-            {!! Form::submit('create post',['class'=>'btn btn-primary']) !!}
+        <div class="form-group">
+
+        {!! Form::label('email','Email') !!}
+        {!! Form::email('email',null,['class'=>'form-control']) !!}
+
+         </div>
+
+        <div class="form-group">
+
+        {!! Form::label('role_id','Role') !!}
+        {!! Form::text('role_id',null,['class'=>'form-control']) !!}
+
+         </div>
+
+        <div class="form-group">
+
+        {!! Form::label('status','Status') !!}
+        {!! Form::select('status',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
+
+         </div>
+
+
+
+
+    <div class="form-group">
+            {!! Form::submit('create User',['class'=>'btn btn-primary']) !!}
          </div>
 
          {!! Form::close() !!}
