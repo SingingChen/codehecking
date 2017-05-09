@@ -33,15 +33,15 @@
 
         <div class="form-group">
 
-            {!! Form::label('status','Status') !!}
-            {!! Form::select('status',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
+            {!! Form::label('is_active','Status') !!}
+            {!! Form::select('is_active',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
 
          </div>
 
         <div class="form-group">
 
-            {!! Form::label('file','File') !!}
-            {!! Form::file('file',null,['class'=>'form-control']) !!}
+            {!! Form::label('photo_id','File') !!}
+            {!! Form::file('photo_id',null,['class'=>'form-control']) !!}
 
         </div>
 
