@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -41,10 +42,40 @@ class AdminUserController extends Controller
     public function store(UserRequest $request)
     {
         //
-        User::create($request->all());
+        $input = $request->all();
+
+        if($file = $request->file(['photo_id']))
+        {
+
+
+            $name = time() . $file->getClientOriginalName();
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//            將檔案移至public/images下
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            $file->move('images',$name);
+
+            //  將檔名放進photos資料表裡的file欄位
+
+            $photo = Photo::create(['file'=>$name]);
+
+//            將$request->photo_id 改成上面存進資料庫$photo 的id
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+//        密碼加密
+        $input['password'] = bcrypt($request->password);
+
+//        存進資料庫
+        User::create($input);
+
+
+//        User::create($request->all());
 
         return redirect('admin/users');
-//        return $request->all();
+
     }
 
     /**

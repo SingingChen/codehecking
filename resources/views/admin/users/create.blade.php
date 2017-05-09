@@ -3,7 +3,7 @@
 @section('content')
     <h1>Create Users</h1>
 
-     {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store','file'=>true]) !!}
+     {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store','files'=>true]) !!}
 
          <div class="form-group">
 
