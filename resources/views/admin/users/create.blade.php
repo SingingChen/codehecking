@@ -46,22 +46,27 @@
         </div>
 
 
-    <div class="form-group">
+        <div class="form-group">
             {!! Form::submit('create User',['class'=>'btn btn-primary']) !!}
          </div>
 
          {!! Form::close() !!}
 
+    @if(count($errors) > 0)
 
-         @if(count($errors) > 0)
-             <ul>
-             @foreach($errors->all() as $error)
+    <div class="alert alert-danger">
 
-             <li>{{$error}}</li>
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
 
-                 @endforeach
-             </ul>
-         @endif
+        </ul>
+
+    </div>
+
+    @endif
+
 
 
 
