@@ -1,9 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Create Users</h1>
+    <h1>Edit Users</h1>
 
-    {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store','files'=>true]) !!}
+    {{--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+    {{--記得綁定才會在編輯頁面顯示資料庫裡的資料--}}
+    {{--open改成model --}}
+    {{--綁定$user--}}
+    {{--method是Patch--}}
+    {{--指定$user->id--}}
+    {{--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
+    {!! Form::model($user,['method'=>'Patch','action'=>['AdminUserController@update',$user->id],'files'=>true]) !!}
 
     <div class="form-group">
 

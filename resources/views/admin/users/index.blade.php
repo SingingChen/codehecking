@@ -23,7 +23,11 @@
              @foreach($users as $user)
                <tr>
                  <td>{{$user->id}}</td>
-                 <td>{{$user->name}}</td>
+                   {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+                   {{--綁定$user->id--}}
+                   {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
+                 <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
                  <td><img height="50" src="{{$user->photo ? $user->photo->file :'No Photo' }}" alt=""></td>
                  <td>{{$user->email}}</td>
                  <td>{{$user->role->name}}</td>
