@@ -24,7 +24,7 @@
                <tr>
                  <td>{{$user->id}}</td>
                  <td>{{$user->name}}</td>
-                 <td><img height="50" src="/images/{{$user->photo ? $user->photo->file :'No Photo' }}" alt=""></td>
+                 <td><img height="50" src="{{$user->photo ? $user->photo->file :'No Photo' }}" alt=""></td>
                  <td>{{$user->email}}</td>
                  <td>{{$user->role->name}}</td>
                  <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
