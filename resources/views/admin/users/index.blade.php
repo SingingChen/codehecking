@@ -9,6 +9,7 @@
            <tr>
              <th>ID</th>
              <th>Name</th>
+             <th>Photo</th>
              <th>Email</th>
              <th>Role</th>
              <th>Status</th>
@@ -23,6 +24,7 @@
                <tr>
                  <td>{{$user->id}}</td>
                  <td>{{$user->name}}</td>
+                 <td>{{$user->photo ? $user->photo->file :'No Photo' }}</td>
                  <td>{{$user->email}}</td>
                  <td>{{$user->role->name}}</td>
                  <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
