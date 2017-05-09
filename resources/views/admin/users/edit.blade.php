@@ -3,6 +3,18 @@
 @section('content')
     <h1>Edit Users</h1>
 
+
+    <div class="col-sm-3">
+
+
+        <img src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
+
+
+    </div>
+
+
+    <div class="col-sm-9">
+
     {{--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
     {{--記得綁定才會在編輯頁面顯示資料庫裡的資料--}}
     {{--open改成model --}}
@@ -42,7 +54,7 @@
     <div class="form-group">
 
         {!! Form::label('is_active','Status') !!}
-        {!! Form::select('is_active',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
+        {!! Form::select('is_active',['0'=>'Not Active','1'=>'Active'],null,['class'=>'form-control']) !!}
 
     </div>
 
@@ -68,6 +80,8 @@
     {!! Form::close() !!}
 
     @include('includes.form_error')
+
+    </div>
 
 
 
