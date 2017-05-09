@@ -3,7 +3,7 @@
 @section('content')
     <h1>Create Users</h1>
 
-     {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store']) !!}
+     {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store','file'=>true]) !!}
 
          <div class="form-group">
 
@@ -19,29 +19,36 @@
 
         <div class="form-group">
 
-        {!! Form::label('email','Email') !!}
-        {!! Form::email('email',null,['class'=>'form-control']) !!}
+            {!! Form::label('email','Email') !!}
+            {!! Form::email('email',null,['class'=>'form-control']) !!}
 
          </div>
 
         <div class="form-group">
 
-        {!! Form::label('role_id','Role') !!}
-        {!! Form::select('role_id',[''=>'Choose Options'] + $roles ,null,['class'=>'form-control']) !!}
+            {!! Form::label('role_id','Role') !!}
+            {!! Form::select('role_id',[''=>'Choose Options'] + $roles ,null,['class'=>'form-control']) !!}
 
          </div>
 
         <div class="form-group">
 
-        {!! Form::label('status','Status') !!}
-        {!! Form::select('status',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
+            {!! Form::label('status','Status') !!}
+            {!! Form::select('status',['0'=>'Not Active','1'=>'Active'],'1',['class'=>'form-control']) !!}
 
          </div>
+
+        <div class="form-group">
+
+            {!! Form::label('file','File') !!}
+            {!! Form::file('file',null,['class'=>'form-control']) !!}
+
+        </div>
 
         <div class="form-group">
 
             {!! Form::label('password','Password') !!}
-            {!! Form::text('password',null,['class'=>'form-control']) !!}
+            {!! Form::password('password',null,['class'=>'form-control']) !!}
 
         </div>
 
