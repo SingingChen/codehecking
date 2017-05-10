@@ -115,7 +115,7 @@ class AdminUserController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         //
-        if ($request->password == ''){
+        if (trim($request->password) == ''){
 
             $input = $request->except('password');
         }else{
