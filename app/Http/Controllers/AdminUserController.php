@@ -115,9 +115,17 @@ class AdminUserController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         //
-        $user = User::findOrFail($id);
+        if ($request->password == ''){
 
-        $input = $request->all();
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+
+            $input['password'] = bcrypt($request->password);
+
+        }
+
+        $user = User::findOrFail($id);
 
         if ($file = $request->file('photo_id')){
 
