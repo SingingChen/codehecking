@@ -63,8 +63,6 @@ class AdminPostController extends Controller
 
         }
 
-        $input['category_id'] = 0;
-
         $user->posts()->create($input);
 
         return redirect('/admin/posts');
