@@ -95,7 +95,9 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::pluck('name','id')->all();
+        $post = Post::findOrFail($id);
+        return view('/admin/posts/edit',compact('post','categories'));
     }
 
     /**
@@ -107,7 +109,9 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+
     }
 
     /**
