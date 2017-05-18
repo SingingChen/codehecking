@@ -9,7 +9,7 @@
          <thead>
            <tr>
              <th>ID</th>
-             <th>User</th>
+             <th>Owner</th>
              <th>Category</th>
              <th>Photo</th>
              <th>Title</th>
@@ -28,8 +28,8 @@
              <td>{{$post->photo_id}}</td>
              <td>{{$post->title}}</td>
              <td>{{$post->body}}</td>
-             <td>{{$post->created_at}}</td>
-             <td>{{$post->updated_at}}</td>
+             <td>{{$post->created_at->diffForHumans()}}</td>
+             <td>{{$post->updated_at->diffForHumans()}}</td>
            </tr>
 
            @endforeach

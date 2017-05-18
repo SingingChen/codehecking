@@ -12,7 +12,22 @@ class Post extends Model
         'user_id',
         'category_id',
         'photo_id'
-
-
     ];
+
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
+
+    public function photo()
+    {
+        $this->belongsTo('App\Photo');
+    }
+
+    public function category()
+    {
+        $this->belongsTo('App\Category');
+    }
+
 }
