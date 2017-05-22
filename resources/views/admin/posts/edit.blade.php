@@ -5,47 +5,59 @@
 
     <h1>Edit Post</h1>
 
-    {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostController@update',$post->id] ,'files'=>true]) !!}
+    <div class="col-sm-3">
 
-    <div class="form-group">
-
-        {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
-        {{--{!! Form::text('id','value' or null ,['attribute'=>'class or placeholder...']) !!}--}}
-        {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+        <img src="{{$post->photo->file}}" alt="" class="img-responsive">
 
 
-        {!! Form::label('title','Title') !!}
-        {!! Form::text('title',null,['class'=>'form-control']) !!}
     </div>
 
-    <div class="form-group">
-        {!! Form::label('category_id','Category') !!}
-        {!! Form::select('category_id',[''=>'options'] + $categories ,null,['class'=>'form-control']) !!}
-    </div>
+    <div class="col-sm-9">
+        {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostController@update',$post->id] ,'files'=>true]) !!}
 
-    <div class="form-group">
-        {!! Form::label('photo_id','Photo') !!}
-        {!! Form::file('photo_id',null,['class'=>'form-control']) !!}
-    </div>
 
-    <div class="form-group">
-        {!! Form::label('body','Description') !!}
-        {!! Form::textarea('body',null,['placeholder'=>'enter content','cols'=>100]) !!}
-    </div>
+        <div class="form-group">
 
-    <div class="form-group">
-        {!! Form::submit('Updated post',['class'=>'btn btn-primary col-sm-6']) !!}
-    </div>
+            {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+            {{--{!! Form::text('id','value' or null ,['attribute'=>'class or placeholder...']) !!}--}}
+            {{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
-    {!! Form::close() !!}
 
-     {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy',$post->id]]) !!}
+            {!! Form::label('title','Title') !!}
+            {!! Form::text('title',null,['class'=>'form-control']) !!}
+        </div>
 
-         <div class="form-group">
+        <div class="form-group">
+            {!! Form::label('category_id','Category') !!}
+            {!! Form::select('category_id',[''=>'options'] + $categories ,null,['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('photo_id','Photo') !!}
+            {!! Form::file('photo_id',null,['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('body','Description') !!}
+            {!! Form::textarea('body',null,['placeholder'=>'enter content','cols'=>100]) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::submit('Updated post',['class'=>'btn btn-primary col-sm-6']) !!}
+        </div>
+
+        {!! Form::close() !!}
+
+        {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy',$post->id]]) !!}
+
+        <div class="form-group">
             {!! Form::submit('Delete post',['class'=>'btn btn-danger col-sm-6']) !!}
-         </div>
+        </div>
 
-         {!! Form::close() !!}
+        {!! Form::close() !!}
+        
+    </div>
+
 
 
 
