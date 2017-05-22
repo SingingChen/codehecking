@@ -34,10 +34,19 @@
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Updated post',['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Updated post',['class'=>'btn btn-primary col-sm-6']) !!}
     </div>
 
     {!! Form::close() !!}
+
+     {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy',$post->id]]) !!}
+
+         <div class="form-group">
+            {!! Form::submit('Delete post',['class'=>'btn btn-danger col-sm-6']) !!}
+         </div>
+
+         {!! Form::close() !!}
+
 
 
     @include('includes.form_error')
