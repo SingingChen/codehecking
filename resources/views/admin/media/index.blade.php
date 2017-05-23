@@ -11,6 +11,8 @@
              <th>Id</th>
              <th>Photo</th>
              <th>Create Date</th>
+             <th>Delete</th>
+
            </tr>
          </thead>
          <tbody>
@@ -19,6 +21,17 @@
              <td>{{$photo->id}}</td>
              <td><img height="50" src="{{$photo->file ? $photo->file:'No Image'}}" alt=""></td>
              <td>{{$photo->created_at ? $photo->created_at->diffForHumans() : 'No Photo'}}</td>
+             <td>
+                  {!! Form::open(['method'=>'DELETE','action'=>['AdminMediasController@destroy',$photo->id]]) !!}
+
+
+                      <div class="form-group">
+                         {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+                      </div>
+
+                      {!! Form::close() !!}
+
+             </td>
            </tr>
           @endforeach
          </tbody>
