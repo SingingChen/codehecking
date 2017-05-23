@@ -23,6 +23,19 @@ class AdminMediascontroller extends Controller
     }
 
 
+    public function store(Request $request)
+    {
+        $file = $request->file('file');
+
+        $name = time().$file->getClientOriginalName();
+
+        $file->move('image',$name);
+
+        Photo::create(['file'=>$name]);
+
+    }
+
+
 
 
 
