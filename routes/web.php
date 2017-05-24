@@ -19,9 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/post/{id}','AdminPostController@post');
+
 
 Route::group(['middleware'=>'admin'],function (){
+    oute::get('/admin',function (){
 
+        return view('admins.index');
+    });
 
     Route::resource('admin/users','AdminUserController');
     Route::resource('admin/posts','AdminPostController');
@@ -33,7 +38,3 @@ Route::group(['middleware'=>'admin'],function (){
 
 });
 
-Route::get('/admin',function (){
-
-    return view('admins.index');
-});

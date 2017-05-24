@@ -152,4 +152,11 @@ class AdminPostController extends Controller
 
         return redirect('/admin/posts');
     }
+
+
+    public function post($id)
+    {
+
+    }
 }
+
