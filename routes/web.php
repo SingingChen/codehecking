@@ -23,9 +23,9 @@ Route::get('/post/{id}','AdminPostController@post');
 
 
 Route::group(['middleware'=>'admin'],function (){
-    oute::get('/admin',function (){
+    Route::get('/admin',function (){
 
-        return view('admins.index');
+        return view('admin.index');
     });
 
     Route::resource('admin/users','AdminUserController');
