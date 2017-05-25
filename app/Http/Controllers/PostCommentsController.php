@@ -63,7 +63,7 @@ class PostCommentsController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'CommentId'.$id.'work';
     }
 
     /**
