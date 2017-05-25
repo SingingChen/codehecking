@@ -29,18 +29,36 @@
 
     <hr>
 
+
+    @if(Session::has('comment_message'))
+        {{session('comment_message')}}
+
+
+        @endif
+
     <!-- Blog Comments -->
 
     <!-- Comments Form -->
-    <div class="well">
-        <h4>Leave a Comment:</h4>
-        <form role="form">
-            <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+     {!! Form::open(['method'=>'POST','action'=>'PostCommentsController@store']) !!}
+
+         <div class="form-group">
+
+             <input type="hidden" name="post_id" value="{{$post->id}}">
+             <input type="hidden" name="email" value="{{$post->user->email}}">
+             <input type="hidden" name="author" value="{{$post->user->name}}">
+
+             {!! Form::label('body','Leave Comment') !!}
+             {!! Form::textarea('body',null,['class'=>'form-control','row'=>3]) !!}
+
+         </div>
+
+         <div class="form-group">
+            {!! Form::submit('Post Comment',['class'=>'btn btn-primary']) !!}
+         </div>
+
+         {!! Form::close() !!}
+
+
 
     <hr>
 
