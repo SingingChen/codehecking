@@ -15,6 +15,8 @@
 
              <th>Title</th>
              <th>Body</th>
+             <th>Post View</th>
+             <th>Comment View</th>
              <th>Create</th>
              <th>Update</th>
            </tr>

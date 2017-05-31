@@ -3,7 +3,7 @@
 
 @section('content')
 
-    @if(count($comments) > 0)
+    @if(count($comments)>0)
         <h1 class="text-center">Comments</h1>
 
         <table class="table">
@@ -20,6 +20,8 @@
             </tr>
             </thead>
             <tbody>
+
+
             @foreach($comments as $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
