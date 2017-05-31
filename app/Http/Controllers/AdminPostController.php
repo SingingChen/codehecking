@@ -158,8 +158,10 @@ class AdminPostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+//        如果顯示approve 則可以顯現
 
-        return view('post',compact('post'));
+        $comments = $post->comment()->whereIsActive(1)->get();
+        return view('post',compact('post','comments'));
 
     }
 }
