@@ -21,4 +21,9 @@ class CommentReply extends Model
         return $this->belongsTo('App\Comment');
     }
 
+//    public function photo()
+//    {
+//        return $this->hasOne('App\Photo');
+//    }
+
 }
