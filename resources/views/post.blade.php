@@ -99,29 +99,53 @@
 
                     {{session('reply_message')}}
                     @endif
-            {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply']) !!}
+            <div class="comment-reply-container">
 
-            <div class="form-group">
+                <button class="toggle_reply btn btn-primary pull-right">Reply</button>
 
-                <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                {!! Form::label('body','Body') !!}
-                {!! Form::textarea('body',null,['class'=>'form-control','rows'=>1]) !!}
+                <div class="comment_reply col-sm-7">
+                    {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply']) !!}
+
+                    <div class="form-group">
+
+                        <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                        {!! Form::label('body','Body') !!}
+                        {!! Form::textarea('body',null,['class'=>'form-control','rows'=>1]) !!}
+
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::submit('Submit',['class'=>'btn btn-primary']) !!}
+                    </div>
+
+                    {!! Form::close() !!}
+                </div>
 
             </div>
-
-            <div class="form-group">
-                {!! Form::submit('Submit',['class'=>'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
         @endif
-
-        <!-- End Nested Comment -->
         </div>
+        <!-- End Nested Comment -->
+
     </div>
         @endforeach
 
     @endif
+
+    @stop
+
+@section('scripts')
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script>
+
+        $('.comment-reply-container .toggle_reply').click(function(){
+            $(this).next().slideToggle();
+
+        })
+
+
+    </script>
 
     @stop
