@@ -78,14 +78,15 @@
             </h4> {{$comment->body}}
 
             <!-- Nested Comment -->
-            <div class="nested-comment">
+
         @if(count($comment->replies)>0)
+
             @foreach($comment->replies as $reply)
 
                 @if($reply->is_active == 1)
-                    <div class="media">
+                    <div class="media nested-comment">
                         <a class="pull-left" href="#">
-                            <img height="64" class="media-object" src="{{$reply->photo}}" alt="">
+                            <img height="64" class="media-object" src="{{Auth::user()->gravatar}}" alt="">
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">{{$reply->author}}
@@ -96,7 +97,7 @@
                     </div>
                 @endif
             @endforeach
-            </div>
+
 
                 @if(Session::has('reply_message'))
 
