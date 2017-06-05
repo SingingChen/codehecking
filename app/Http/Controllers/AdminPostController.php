@@ -154,9 +154,20 @@ class AdminPostController extends Controller
     }
 
 
-    public function post($id)
+    public function post($slug)
     {
-        $post = Post::findOrFail($id);
+//        +++++++++++++++++++++++++++++++++++++++++++++++++
+        // NEW
+//        $posts = Post::where('slug',$input)->get();
+//        $post = Post::where('slug', $input)->first();
+//        $post = Post::where('slug', $input)->firstOrFail();
+//        $post = Post::where('slug', $input)->first() ?: Post::findOrFail((int)$input);
+//        +++++++++++++++++++++++++++++++++++++++++++++++++
+
+//       ******** 很重要 用first()  ,get()會失敗 *******
+
+        $post = Post::where('slug',$slug)->firstOrFail();
+
 
 //        如果顯示approve 則可以顯現
 
