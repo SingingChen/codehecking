@@ -20,7 +20,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(3);
 
         return  view('admin.posts.index',compact('posts'));
     }
@@ -167,8 +167,6 @@ class AdminPostController extends Controller
 //       ******** 很重要 用first()  ,get()會失敗 *******
 
         $post = Post::where('slug',$slug)->firstOrFail();
-
-
 //        如果顯示approve 則可以顯現
 
         $comments = $post->comment()->whereIsActive(1)->get();
