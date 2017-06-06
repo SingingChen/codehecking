@@ -166,7 +166,14 @@ class AdminPostController extends Controller
 
 //       ******** 很重要 用first()  ,get()會失敗 *******
 
-        $post = Post::where('slug',$slug)->firstOrFail();
+//        $post = Post::where('slug',$slug)->firstOrFail();
+
+
+//        +++++++++++++++++++++++++++++++++++
+//        必須在model加入 use Cviebrock\EloquentSluggable\SluggableScopeHelpers; 才可使用
+//        +++++++++++++++++++++++++++++++++++
+        $post = Post::findBySlugOrFail($slug);
+
 //        如果顯示approve 則可以顯現
 
         $comments = $post->comment()->whereIsActive(1)->get();

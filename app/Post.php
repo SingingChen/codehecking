@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Cviebrock\EloquentSluggable\Sluggable;
+
 
 class Post extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
 
     /**
      * Sluggable configuration.
