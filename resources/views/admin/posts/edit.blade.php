@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@include('includes.tinyeditor')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 
     <div class="col-sm-3">
 
-        <img src="{{$post->photo->file}}" alt="" class="img-responsive">
+        <img src="{{$post->photo? $post->photo->file :$post->photoPlaceholder()}}" alt="" class="img-responsive">
 
 
     </div>
